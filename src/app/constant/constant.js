@@ -1,4 +1,4 @@
-import { Heart, ShoppingCart, User } from "feather-icons-react";
+import { Heart, LogOut, ShoppingBag, ShoppingCart, User, XCircle } from "feather-icons-react";
 export const pages = [
     {
         id: crypto.randomUUID(),
@@ -48,3 +48,31 @@ export const SecndaryPage = [
         icon: <User />,
     },
 ];
+
+
+export const hoverMenu = [
+    {
+        id: crypto.randomUUID(),
+        pages: "Account",
+        route: "/",
+        icon: <User />,
+    },
+    {
+        id: crypto.randomUUID(),
+        pages: "Order",
+        route: "/",
+        icon: <ShoppingBag />,
+    },
+    {
+        id: crypto.randomUUID(),
+        pages: "Cancellation",
+        route: "/",
+        icon: <XCircle />,
+    },
+     {
+        id: crypto.randomUUID(),
+        pages: "Logout",
+        route: "/",
+        icon: <LogOut />,
+    },
+]
