@@ -1,0 +1,165 @@
+import { pages } from "../constant/constant";
+import Link from "next/link";
+import { Heart, ShoppingCart, User, XCircle } from "feather-icons-react";
+
+const Navbar = ({ isOpen, toggleNavbar }) => {
+    if (!isOpen) return null;
+    return (
+        <>
+            <div
+                className='fixed inset-0 bg-black/60 backdrop-blur-sm justify-end z-50 transition-opacity duration-300'
+                onClick={toggleNavbar}>
+                <nav className='flex flex-1 justify-end relative'>
+                    <div
+                        className={` absolute left-20 ${
+                            isOpen ? "block" : "hidden"
+                        } cursor-pointer z-10 hover:text-3xl`}>
+                        <XCircle
+                            onClick={toggleNavbar}
+                            color='white'
+                            size={30}
+                        />
+                    </div>
+
+                    <div
+                    onClick={e => e.stopPropagation()}
+                        className={`bg-gray-900 text-white h-full rounded-2xl  ${
+                            isOpen
+                                ? "flex flex-col-reverse translate-x-0"
+                                : "hidden translate-x-full"
+                        } fixed  top-0 right-0 lg:left-auto py-70 px-30 w-3/4   items-center gap-10 sm:w-1/2 md:w-1/3 shadow-2xl transform transition-transform duration-500 ease-in-out  lg:p-10 lg:bg-transparent lg:flex-row lg:w-auto lg:items-center`}>
+                        <ul >
+                            {pages.map((page) => {
+                                return (
+                                    <li key={page.id} className='mb-10'>
+                                        <Link href={page.route}>
+                                            {page.pages}{" "}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+
+                        <div className='flex justify-between gap-2.5  flex-col'>
+                            <div>
+                                <form action=''>
+                                    <input
+                                        type='text'
+                                        placeholder='Search...'
+                                        name='search'
+                                        className=''
+                                    />
+                                </form>
+                            </div>
+
+                            <div>
+                                <ul className=' flex justify-between'>
+                                    <li className='p-4'>
+                                        <Heart />
+                                    </li>
+                                    <li className='p-4'>
+                                        <ShoppingCart />
+                                    </li>
+                                    <li className='p-4'>
+                                        <User />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </>
+    );
+};
+className={`${isOpen ? " " : "flex  items-start"}`}
+export default Navbar;
+
+
+{/* 
+                <div className="flex">
+                    <div>
+
+                        <form action="">
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                name="search"
+                                className=""
+                            />
+                        </form>
+                    </div>
+
+                    <div >
+                        <ul className="flex">
+                            <li>
+                                <Heart />
+                            </li>
+                            <li>
+                                <ShoppingCart />
+                            </li>
+                            <li>
+                                <User />
+                            </li>
+                        </ul>
+                    </div>
+
+                </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                import { pages } from "../constant/constant";
+import Link from "next/link";
+import { Heart, ShoppingCart, User, XCircle } from "feather-icons-react";
+
+const Navbar = ({ isOpen, toggleNavbar }) => {
+
+    
+    return (
+        <>
+            <div
+                className={`${
+                    isOpen
+                        ? "fixed inset-0 bg-black/60 backdrop-blur-sm justify-end z-50 transition-opacity duration-300"
+                        : ""
+                }`}   onClick={toggleNavbar}>
+                <nav className='flex flex-1 justify-end relative  '>
+                    <div className="absolute z-30 top-10 right-10 ">
+                        <XCircle
+                            className={`text-white ${
+                                isOpen ? "lg:hidden flex" : "hidden"
+                            } cursor-pointer z-10`}
+                            onClick={toggleNavbar}
+                        />
+                    </div>
+
+                    <ul
+                        className={`bg-gray-900 text-white lg:text-black h-full rounded-bl-4xl rounded-tl-4xl  ${
+                            isOpen ? "flex" : "hidden lg:flex"
+                        } fixed  top-0 right-0 lg:left-auto py-20 px-30 flex-col items-start gap-10 w-1/2 sm:w-1/2 md:w-1/2 shadow-2xl lg:shadow-none transform transition-transform duration-500 lg:p-10 lg:bg-transparent lg:flex-row al`} onClick={e => e.stopPropagation()}>
+                        {pages.map((page) => {
+                            return (
+                                <li key={page.id}>
+                                    <Link href={page.route}>{page.pages}</Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </nav>
+            </div>
+        </>
+    );
+};
